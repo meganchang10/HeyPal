@@ -339,7 +339,7 @@ Now restart the apache server:
 If you are working on your website locally, and updating things on the github, you can use the following lines to re clone the updated version of your git:
 
 student@ip-172-31-6-85:/var/www/HeyPal$ `sudo rm -rf heypal`
-student@ip-172-31-6-85:/var/www/HeyPal$ `sudo git clone https://github.com/meganchang10/HeyPal-Website.git heypal`
+student@ip-172-31-6-85:/var/www/HeyPal$ `sudo git clone https://github.com/meganchang10/HeyPal.git heypal`
 
 ## Debugging
 

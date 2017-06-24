@@ -318,11 +318,7 @@ def sendInvite(creator, myActivity_id):
 
         flash("Invitations have been sent!")
         return redirect(url_for(
-<<<<<<< HEAD
-            "showMyInvites", myInvites=myInvites, creator=creator))
-=======
             "showMyInvites", user_id=creator))
->>>>>>> Undoing stuff
     else:
         pals = session.query(Pal).filter_by(user_id=creator).all()
         return render_template(
