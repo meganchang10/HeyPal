@@ -7,9 +7,9 @@
 <form action="#" method = 'POST'>
 
   <button type="submit" class="btn btn-default delete" id="submit" type="submit">
-  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Delete</button>
+  <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>Yes, I'm sure</button>
 
-  <a href = '{{url_for('showMyInvites', user_id=login_session['user_id'])}}'>
+  <a href = '{{url_for('invitesRedirect')}}'>
     <button type="button" class="btn btn-default delete">
     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Cancel</button>
   </a>
