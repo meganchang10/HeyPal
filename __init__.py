@@ -172,7 +172,7 @@ def addToMyActivities(activity_id):
         return redirect(url_for('showActivities', title="All Activities"))
 
 
-@app.route('/heypal/<int:creator>/new', methods=["GET", "POST"])
+@app.route('/heypal/<int:creator>/myActivity/new', methods=["GET", "POST"])
 @login_required
 def newMyActivity(creator):
     '''Users can create their own My Activity from scratch'''
@@ -191,7 +191,7 @@ def newMyActivity(creator):
 
 
 @app.route(
-    '/heypal/<int:creator>/<int:myActivity_id>/edit/', methods=["GET", "POST"])
+    '/heypal/<int:creator>/<int:myActivity_id>/myActivity/edit/', methods=["GET", "POST"])
 @login_required
 def editMyActivity(myActivity_id, creator):
     '''Users can edit an activity they created or activity they pushed from the
@@ -215,7 +215,7 @@ def editMyActivity(myActivity_id, creator):
 
 
 @app.route(
-    '/heypal/<int:creator>/<int:myActivity_id>/delete/',
+    '/heypal/<int:creator>/<int:myActivity_id>/myActivity/delete/',
     methods=["GET", "POST"])
 def deleteMyActivity(myActivity_id, creator):
     '''Users can remove an activity from their My Activity page'''
@@ -318,7 +318,7 @@ def sendInvite(creator, myActivity_id):
 
 
 @app.route(
-    '/heypal/<int:user_id>/<int:invite_id>/delete/',
+    '/heypal/<int:user_id>/<int:invite_id>/invites/delete/',
     methods=["GET", "POST"])
 def deleteInvite(invite_id, user_id):
     '''Users can remove an activity from their My Activity page'''
@@ -329,6 +329,8 @@ def deleteInvite(invite_id, user_id):
 
     deleteInvite = session.query(Invite).filter_by(
         id=invite_id).one()
+
+    flash("Invite id: " )
 
     if request.method == "POST":
         session.delete(deleteInvite)

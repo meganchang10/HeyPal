@@ -58,7 +58,7 @@
       <label for="creator">Created by:</label>
       <h4>{{host.name}}</h4>
 
-        <a href="{{url_for('deleteInvite',invite_id = current.id, user_id=login_session['user_id'])}}">
+        <a href="{{url_for('deleteInvite',invite_id = current.id, user_id=user_id)}}">
           <button class="btn btn-default" id="delete-invite">
           <span class="glyphicon glyphicon-trash"></span>Decline Invitation
           </button>
