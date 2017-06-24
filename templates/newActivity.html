@@ -1,0 +1,116 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+  <div class="row divider blue">
+    <div class="col-md-12"></div>
+  </div>
+
+  <div class="row banner menu">
+    <div class="col-md-11 col-md-offset-1 padding-none">
+      <h1>New Activity</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    The more specific the better! However everything in this form is optional.
+  </div>
+
+  <form action="#" method = "post">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1 padding-top">
+
+      <!-- The form allows us to receive input assigned to the value name -->
+
+          <label for="name">Name:</label>
+          <input type ="text" maxlength="50" class="form-control" name="name" placeholder="Name of the activity">
+
+          <p></p>
+
+          <label for="location">Location:</label>
+          <input type ="text" maxlength="50" class="form-control" name="location" placeholder="Location of the activity">
+
+          <p></p>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+          <label for="date">Date:</label>
+          <input type ="text" maxlength="50" class="form-control" name="date" placeholder="MM/DD">
+        </div>
+
+        <div class="col-md-1">
+          <label for="date">Year:</label>
+          <input type ="text" maxlength="50" class="form-control" name="year" placeholder="YY">
+        </div>
+
+        <div class="col-md-2">
+          <label for="datetime">Time:</label>
+          <input type ="text" maxlength="50" class="form-control" name="time" placeholder="HH:MM">
+        </div>
+
+        <div class="col-md-1">
+          <label for="AMorPM">&nbsp;</label>
+          <select name="AMorPM">
+            <option value= "AM">AM</option>
+            <option value= "PM" selected>PM</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+
+          <label for="image">Image:</label>
+          <input type ="text" maxlength="250" class="form-control" name="image" placeholder="Image of the activity in url format (http://www.image.jpg)">
+
+          <p></p>
+
+          <label for="description">Description:</label>
+          <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Description of the activity (only if necessary)"></textarea>
+
+          <p></p>
+
+          <label for="tags">Tags:</label><br>
+
+          <input type="checkbox" name="tag_free" value=True> Free<br>
+          <input type="checkbox" name="tag_sporty" value=True> Sporty<br>
+          <input type="checkbox" name="tag_outdoor" value=True> Outdoors<br>
+          <input type="checkbox" name="tag_special" value=True> Special Occasions!<br>
+          <input type="checkbox" name="tag_learn" value=True> Better Yourself<br>
+          <input type="checkbox" name="tag_date_night" value=True> Date Night<br>
+          <input type="checkbox" name="tag_over_21" value=True> Over 21 Only<br>
+          <input type="checkbox" name="tag_after_work" value=True> After Work<br>
+
+
+          <p></p>
+          Administrator Use Only:
+          <p></p>
+
+          <label for="venue_id">Foursquare Venue ID:</label>
+          <input type ="text" maxlength="250" class="form-control" name="venue_id" placeholder="Administrator use only">
+
+          <p></p>
+
+          <label for="lat">Latitude:</label>
+          <input type ="text" maxlength="250" class="form-control" name="lat" placeholder="Administrator use only">
+
+          <p></p>
+
+          <label for="lng">Longitude:</label>
+          <input type ="text" maxlength="250" class="form-control" name="lng" placeholder="Administrator use only">
+
+          <p></p>
+
+          <button type="submit" class="btn btn-default" id="submit" type="submit">
+          <!-- A glyphicon is part of the bootstrap css package that includes 260 "glyphs" or icons like a music note or trash can for delete -->
+          <span class="glyphicon glyphicon-flash"></span>Create</button>
+
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}

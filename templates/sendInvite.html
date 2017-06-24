@@ -1,0 +1,145 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+  <div class="row divider blue">
+    <div class="col-md-12"></div>
+  </div>
+
+  <div class="row banner menu">
+    <div class="col-md-11 col-md-offset-1 padding-none">
+      <h1>Invite your Pals</h1>
+    </div>
+  </div>
+
+
+  <form action="#" method = "post">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1 padding-top">
+
+    <!-- The form allows us to receive input assigned to the value name -->
+
+          <label for="name">Name:</label>
+          <input type ="text" maxlength="50" class="form-control" name="name" placeholder="{{current.name}}">
+
+          <p></p>
+
+          <label for="location">Location:</label>
+          <input type ="text" maxlength="50" class="form-control" name="location" placeholder="{{current.location}}">
+
+          <p></p>
+
+        </div>
+      </div>
+
+      <div class="row">
+
+        {% if current.datetime %}
+
+        <div class="col-md-2 col-md-offset-1">
+          <label for="date">Date:</label>
+          <input type ="text" maxlength="50" class="form-control" name="date" placeholder="{{current.datetime.month}}/{{current.datetime.strftime("%d")}}">
+        </div>
+
+        <div class="col-md-1">
+          <label for="date">Year:</label>
+          <input type ="text" maxlength="50" class="form-control" name="year" placeholder="{{current.datetime.strftime("%Y")[-2:]}}">
+        </div>
+
+        <div class="col-md-2">
+          <label for="datetime">Time:</label>
+          <input type ="text" maxlength="50" class="form-control" name="time" placeholder="{{current.datetime.strftime("%I:%M")}}">
+        </div>
+
+        <div class="col-md-1">
+          <label for="AMorPM">&nbsp;</label>
+          <select name="AMorPM">
+            <option value= "AM" {% if current.datetime.strftime("%p") == "AM" %}selected {% endif %}>AM</option>
+            <option value= "PM" {% if current.datetime.strftime("%p") == "PM" %}selected {% endif %}>PM</option>
+          </select>
+        </div>
+
+        {% else %}
+
+        <div class="col-md-2 col-md-offset-1">
+          <label for="date">Date:</label>
+          <input type ="text" maxlength="50" class="form-control" name="date" placeholder="MM/DD">
+        </div>
+
+        <div class="col-md-1">
+          <label for="date">Year:</label>
+          <input type ="text" maxlength="50" class="form-control" name="year" placeholder="YY">
+        </div>
+
+        <div class="col-md-2">
+          <label for="datetime">Time:</label>
+          <input type ="text" maxlength="50" class="form-control" name="time" placeholder="HH:MM">
+        </div>
+
+        <div class="col-md-1">
+          <label for="AMorPM">&nbsp;</label>
+          <select name="AMorPM">
+            <option value= "AM">AM</option>
+            <option value= "PM" selected>PM</option>
+          </select>
+        </div>
+
+        {% endif %}
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+
+          <label for="image">Image:</label>
+          <input type ="text" maxlength="250" class="form-control" name="image" placeholder="{{current.image}}">
+
+          <p></p>
+
+          <img src="{{current.image}}" class="img-responsive">
+
+          <label for="description">Description:</label>
+          <textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="{{current.description}}"></textarea>
+
+          <p></p>
+
+          <label for="tags">Tags:</label><br>
+
+          <input type="checkbox" name="tag_free" value=True {% if current.tag_free == True%}checked {% endif %}> Free<br>
+          <input type="checkbox" name="tag_sporty" value=True {% if current.tag_sporty == True%}checked {% endif %}> Sporty<br>
+          <input type="checkbox" name="tag_outdoor" value=True {% if current.tag_outdoor == True%}checked {% endif %}> Outdoors<br>
+          <input type="checkbox" name="tag_special" value=True {% if current.tag_special == True%}checked {% endif %}> Special Occasions<br>
+          <input type="checkbox" name="tag_learn" value=True {% if current.tag_learn == True%}checked {% endif %}> Better Yourself<br>
+          <input type="checkbox" name="tag_date_night" value=True {% if current.tag_date_night == True%}checked {% endif %}> Date Night<br>
+          <input type="checkbox" name="tag_over_21" value=True {% if current.tag_over_21 == True%}checked {% endif %}> Over 21 Only<br>
+          <input type="checkbox" name="tag_after_work" value=True {% if current.tag_after_work == True%}checked {% endif %}> After Work<br>
+
+        </div>
+
+        <div class="col-md-6 col-md-offset-1 padding-top">
+
+          <label for="pals">Pals to Invite:</label><br>
+
+          {% for pal in pals %}
+          <input type="checkbox" name="{{pal.name}}" value="yes" >  {{pal.name}}<br>
+          {% endfor %}
+
+          <p></p>
+
+          <label for="message">Message:</label>
+          <textarea class="form-control" maxlength="250" rows="3" name="message" placeholder= "Hey Pals! Who is down for this awesome activity?" ></textarea>
+
+          <p></p>
+
+          <button type="submit" class="btn btn-default" id="submit" type="submit">
+          <!-- A glyphicon is part of the bootstrap css package that includes 260 "glyphs" or icons like a music note or trash can for delete -->
+          <span class="glyphicon glyphicon-flash"></span>Send Invites</button>
+
+        </div>
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+
