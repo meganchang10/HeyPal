@@ -79,14 +79,9 @@ def showActivities():
             'publicActivities.html', activities=activities, tags=tags,
             title=filter_results)
     else:
-        if "username" in login_session and login_session['user_id'] == 1:
-            return render_template(
-                'activities.html', activities=activities, tags=tags,
-                title="All Activities")
-        else:
-            return render_template(
-                'publicActivities.html', activities=activities, tags=tags,
-                title="All Activities")
+        return render_template(
+            'publicActivities.html', activities=activities, tags=tags,
+            title="All Activities")
 
 
 @app.route('/heypal/<int:activity_id>/activity')
@@ -96,10 +91,7 @@ def showActivity(activity_id):
     activity.log_views += 1
     session.add(activity)
     session.commit()
-    if "username" in login_session and login_session['user_id'] == 1:
-        return render_template('activity.html', current=activity)
-    else:
-        return render_template('publicActivity.html', current=activity)
+    return render_template('publicActivity.html', current=activity)
 
 
 
