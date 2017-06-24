@@ -330,8 +330,6 @@ def deleteInvite(invite_id, user_id):
     deleteInvite = session.query(Invite).filter_by(
         id=invite_id).one()
 
-    flash("Invite id: " )
-
     if request.method == "POST":
         session.delete(deleteInvite)
         session.commit()

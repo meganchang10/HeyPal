@@ -49,14 +49,17 @@
       <p>&nbsp;</p>
       <p>&nbsp;</p>
 
-      <label for="message">Message:</label>
-      <h4>{{current.message}}</h4>
+      <h4>Message:</h4>
+      {{current.message}}
 
       <p>&nbsp;</p>
       <p>&nbsp;</p>
 
-      <label for="creator">Created by:</label>
-      <h4>{{host.name}}</h4>
+      <h4>Created by:</h4>
+      {{host.name}}
+
+      <p>&nbsp;</p>
+      <p>&nbsp;</p>
 
         <a href="{{url_for('deleteInvite',invite_id = current.id, user_id=user_id)}}">
           <button class="btn btn-default" id="delete-invite">
