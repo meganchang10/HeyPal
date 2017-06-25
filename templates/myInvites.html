@@ -27,6 +27,7 @@
     </div>
   </div>
 
+<div class="row">
   {% for myInvite in upcomingEvents %}
 
     <article class="col-md-4 btn-default">
@@ -37,6 +38,7 @@
     </article>
 
   {% endfor %}
+</div>
 
 
   <div class="row padding-top padding-bottom">
@@ -49,6 +51,7 @@
     </div>
   </div>
 
+<div class="row">
   {% for myInvite in noDate %}
 
     <article class="col-md-4 btn-default">
@@ -59,7 +62,7 @@
     </article>
 
   {% endfor %}
-
+</div>
 
   <div class="row padding-top padding-bottom">
     <div class="col-md-3 padding-mini">
@@ -71,6 +74,7 @@
     </div>
   </div>
 
+<div class="row">
   {% for myInvite in pastEvents %}
 
     <article class="col-md-4 btn-default">
@@ -81,7 +85,7 @@
     </article>
 
   {% endfor %}
-
+</div>
   <!-- ENDS here  -->
 
 {% endblock %}

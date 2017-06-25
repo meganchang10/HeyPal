@@ -208,7 +208,7 @@ def editMyActivity(myActivity_id, creator):
         session.add(editActivity)
         session.commit()
         return redirect(url_for(
-            'showMyActivities', creator=creator, title="My Activities"))
+            'showMyActivity', creator=creator, current=editActivity))
     else:
         return render_template(
             'editActivity.html', current=editActivity)
@@ -322,10 +322,35 @@ def sendInvite(creator, myActivity_id):
 
 
 @app.route(
+    '/heypal/<int:user_id>/<int:invite_id>/invites/edit/', methods=["GET", "POST"])
+@login_required
+def editInvite(invite_id, user_id):
+    '''Users can edit an event they have been invited to'''
+    # Authorization required
+    if login_session['user_id'] != creator:
+        flash("Only Authorized Users Can Access That Page")
+        return redirect("/")
+    editInvite = session.query(Invite).filter_by(
+        id=invite_id).one()
+
+    editInvites = session.query(Invite).filter_by(invite_key=editInvite.invite_key).all()
+    if request.method == "POST":
+        for invite in editInvites:
+            edit = activity_handler.performEdit(request, invite)
+            session.add(edit)
+            session.commit()
+        return redirect(url_for(
+            'showMyInvite', creator=creator, current=editInvite))
+    else:
+        return render_template(
+            'editInvite.html', current=editActivity)
+
+
+@app.route(
     '/heypal/<int:user_id>/<int:invite_id>/invites/delete/',
     methods=["GET", "POST"])
 def deleteInvite(invite_id, user_id):
-    '''Users can remove an activity from their My Activity page'''
+    '''Users can decline an invitation.'''
     # Authorization required
     if login_session['user_id'] != user_id:
         flash("Only Authorized Users Can Access That Page")
