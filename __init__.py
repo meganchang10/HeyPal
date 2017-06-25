@@ -327,7 +327,7 @@ def sendInvite(creator, myActivity_id):
 def editInvite(invite_id, user_id):
     '''Users can edit an event they have been invited to'''
     # Authorization required
-    if login_session['user_id'] != creator:
+    if login_session['user_id'] != user_id:
         flash("Only Authorized Users Can Access That Page")
         return redirect("/")
     editInvite = session.query(Invite).filter_by(
@@ -340,10 +340,10 @@ def editInvite(invite_id, user_id):
             session.add(edit)
             session.commit()
         return redirect(url_for(
-            'showMyInvite', creator=creator, current=editInvite))
+            'showMyInvite', user_id=user_id, invite_key=editInvite.invite_key))
     else:
         return render_template(
-            'editInvite.html', current=editActivity)
+            'editInvite.html', current=editInvite)
 
 
 @app.route(
