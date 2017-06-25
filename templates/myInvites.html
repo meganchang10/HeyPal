@@ -21,13 +21,13 @@
     <div class="col-md-3 padding-mini">
     </div>
     <div class="col-md-6">
-      <span class="text-center"><h1 class="title">Invites</h1></span>
+      <span class="text-center"><h1 class="title">Upcoming Events</h1></span>
     </div>
     <div class="col-md-3">
     </div>
   </div>
 
-  {% for myInvite in myInvites %}
+  {% for myInvite in upcomingEvents %}
 
     <article class="col-md-4 btn-default">
       <a href="{{url_for('showMyInvite', invite_key=myInvite.invite_key, user_id=user_id)}}">
@@ -36,6 +36,49 @@
       </a>
     </article>
 
+  {% endfor %}
+
+
+  <div class="row padding-top padding-bottom">
+    <div class="col-md-3 padding-mini">
+    </div>
+    <div class="col-md-6">
+      <span class="text-center"><h1 class="title">Standing Invites</h1></span>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+  {% for myInvite in noDate %}
+
+    <article class="col-md-4 btn-default">
+      <a href="{{url_for('showMyInvite', invite_key=myInvite.invite_key, user_id=user_id)}}">
+        <img src="{{myInvite.image}}" class="img-responsive activity-clip" alt="{{myInvite.name}} Image" >
+        <h4>{{myInvite.name}} @ {{myInvite.location}}</h4>
+      </a>
+    </article>
+
+  {% endfor %}
+
+
+  <div class="row padding-top padding-bottom">
+    <div class="col-md-3 padding-mini">
+    </div>
+    <div class="col-md-6">
+      <span class="text-center"><h1 class="title">Past Events</h1></span>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+  {% for myInvite in pastEvents %}
+
+    <article class="col-md-4 btn-default">
+      <a href="{{url_for('showMyInvite', invite_key=myInvite.invite_key, user_id=user_id)}}">
+        <img src="{{myInvite.image}}" class="img-responsive activity-clip" alt="{{myInvite.name}} Image" >
+        <h4>{{myInvite.name}} @ {{myInvite.location}}</h4>
+      </a>
+    </article>
 
   {% endfor %}
 

@@ -257,10 +257,14 @@ def showMyInvites(user_id):
     if login_session['user_id'] != user_id:
         flash("Only Authorized Users Can Access That Page")
         return redirect("/")
-    myInvites = session.query(Invite).filter_by(guest=user_id).all()
+
+    upcomingEvents = session.query(Invite).filter(Invite.guest == user_id, Invite.datetime > datetime.now()).all()
+    pastEvents = session.query(Invite).filter(Invite.guest == user_id, Invite.datetime < datetime.now()).all()
+    noDate = session.query(Invite).filter(Invite.guest == user_id, Invite.datetime == None).all()
+
     if request.method == "GET":
         return render_template(
-            "myInvites.html", myInvites=myInvites, user_id=user_id)
+            "myInvites.html", user_id=user_id, upcomingEvents=upcomingEvents, pastEvents=pastEvents, noDate=noDate)
 
 
 @app.route('/heypal/<int:user_id>/<string:invite_key>/invite')
