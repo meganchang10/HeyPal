@@ -87,7 +87,7 @@ ubuntu@ip-172-31-6-85:~$ `sudo ufw allow 2200/tcp`
 ubuntu@ip-172-31-6-85:~$ `sudo ufw allow www`
 ubuntu@ip-172-31-6-85:~$ `sudo ufw allow 123/tcp`
 
-Be sure that you are using the correct port number for 2200/tcp as this may vary depending on the setup. It could also be 22 or 2222 for example. We must also change the setting on the Amazon Lightsail side. Under Network & Security, Security Groups, Inbound, add the appropriate TCP protocols including allowing Port 2200. 
+Be sure that you are using the correct port number for 2200/tcp as this may vary depending on the setup. It could also be 22 or 2222 for example. We must also change the setting on the Amazon Lightsail side. Under Network & Security, Security Groups, Inbound, add the appropriate TCP protocols including allowing Port 2200.
 
 Next, we enforce key-based SSH authentication in
 
@@ -193,7 +193,7 @@ student@ip-172-31-6-85:~$ `source ~/venv/bin/activate`
 
 You should see a (venv) at the start of the command line. This is how you know the virtual environment is activated:
 
-(venv) student@ip-172-31-6-85:~$ 
+(venv) student@ip-172-31-6-85:~$
 
 From inside the virtual environment, install all required packages using the requirements.txt found in the heypal git you just cloned. This requirements.txt file was created using the pip freeze command and lists all dependencies necessary to run HeyPal. To see these dependencies, please view the requirements.txt file in the GitHub repository:
 
@@ -207,7 +207,7 @@ You can check to make sure everything was installed correctly using:
 
 which should display all the installed modules. NOTE: The -H option is important here. Not using this flag will give you the incorrect information.
 
-Now we need to change a few files to contain the script below: 
+Now we need to change a few files to contain the script below:
 
 student@ip-172-31-6-85:~$ `sudo nano /etc/apache2/sites-enabled/000-default.conf`
 student@ip-172-31-6-85:~$ `sudo nano /etc/apache2/sites-available/heypal.conf`
@@ -236,7 +236,7 @@ In addition, we will create a .wsgi file in the HeyPal directory to automaticall
 
 student@ip-172-31-6-85:$ `sudo nano /var/www/HeyPal/heypal.wsgi`
 
-And type the following in the heypal.wsgi file: 
+And type the following in the heypal.wsgi file:
 
 >#!/usr/sbin/apache2
 >
@@ -263,7 +263,7 @@ To install PSQL:
 (venv) student@ip-172-31-6-85:~$ `sudo apt-get install postgresql`
 (venv) student@ip-172-31-6-85:~$ `sudo apt-get install postgresql-contrib`
 
-In each file that this line is present: 
+In each file that this line is present:
 
 `engine = create_engine('sqlite:///heypal.db')`
 
@@ -290,7 +290,7 @@ Now, we can create the heypal PSQL database using the following steps (Note: Thi
 8) Grant access only to user heypal
 9) Exit postgresql
 10) Exit postgres user
-11) Start the apache2 server 
+11) Start the apache2 server
 12) Change directories
 13) Setup database
 
