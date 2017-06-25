@@ -37,7 +37,6 @@ def performEdit(request, editActivity):
     editActivity.tag_over_21 = tag_over_21
     editActivity.tag_after_work = tag_after_work
 
-    flash("Activity Successfully Edited: %s" % editActivity.name)
     return editActivity
 
 
