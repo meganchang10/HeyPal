@@ -204,6 +204,7 @@ def editMyActivity(myActivity_id, creator):
         id=myActivity_id).one()
 
     if request.method == "POST":
+        flash("Activity Successfully Edited: %s" % editActivity.name)
         editActivity = activity_handler.performEdit(request, editActivity)
         session.add(editActivity)
         session.commit()
@@ -335,6 +336,7 @@ def editInvite(invite_id, user_id):
 
     editInvites = session.query(Invite).filter_by(invite_key=editInvite.invite_key).all()
     if request.method == "POST":
+        flash("Invite Successfully Edited: %s" % editInvite.name)
         for invite in editInvites:
             edit = activity_handler.performEdit(request, invite)
             session.add(edit)
