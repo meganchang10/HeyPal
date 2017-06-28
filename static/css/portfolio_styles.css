@@ -1,0 +1,33 @@
+/* Set the font to Lato and put space at top of page */
+body {
+    font-family: "lato", sans-serif;
+    margin-top: 15px;
+}
+
+/* Give the images a softer rounded edge look and give them a shadow */
+img {
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px #ccc;
+}
+
+/* Set the reader rule properties */
+hr {
+    border: none;
+    height: 3px;
+    background-color: #d3d3d3;
+}
+
+/* Make the font look a little nicer/thinner for certain texts */
+.text-thin {
+    font-weight: 100;
+}
+
+/* Center the logo height */
+.title-logo {
+    margin-top: 20px;
+}
+
+/* Make the title (my name) LARGE */
+.title-super {
+    font-size: 45px;
+}

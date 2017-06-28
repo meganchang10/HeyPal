@@ -524,6 +524,11 @@ def openMaps():
     return render_template('maps.html')
 
 
+@app.route('/portfolio')
+def openPortfolio():
+    return render_template('portfolio.html')
+
+
 # Login/Logout functions
 ###############################################################################
 # Create anti-forgery state token

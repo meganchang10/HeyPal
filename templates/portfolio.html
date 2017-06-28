@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Megan Chang Portfolio</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link href="{{ url_for('static', filename='css/portfolio_styles.css') }}" rel="stylesheet">
+  </head>
+
+<!-- viewport<meta> tag is provided to control mobile layout -->
+
+<!-- Bootstrap style allows for easy grid layout that is responsive.
+      We define columns inside of a row. Each row can have up to 12
+      columns defined, where col-md-6 takes up half the screen and
+      col-md-4 takes up 1/3 of the screen.  -->
+
+<!-- Important notes:
+      - the img-responsive class allows for the images to be responsive.
+      - target="blank" opens links in New Tab
+      - <p>&nbsp;</p> inserts a blank line similar to <br> but better because it's
+        more consistent with the spacing of the rest of the paper -->
+
+  <body>
+    <div class="container">
+
+      <header class="row">
+        <div class="col-md-6">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" class="img-responsive title-logo" alt="Good Vibes Logo" width="200" >
+        </div>
+        <hgroup class="col-md-6 text-right text-uppercase ">
+          <h1 class="text-thin title-super">Megan Chang</h1>
+          <h4>Data Scientist/Back-End Developer</h4>
+        </hgroup>
+      </header>
+
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+        </div>
+      </div>
+
+      <nav class="text-center">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="https://www.linkedin.com/in/megan-chang/" target="_blank">LinkedIn Profile</a>
+          </div>
+          <div class="col-md-3">
+            <a href="{{ url_for('static', filename='pdfs/Megan_Chang_Resume.pdf') }}" target="_blank">Resume</a>
+          </div>
+          <div class="col-md-3">
+            <a href="https://github.com/meganchang10" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <img src="{{ url_for('static', filename='img/travel.jpg') }}" class="img-responsive" alt="Megan in Montenegro" width="1140">
+        </div>
+      </div>
+
+<!-- Here we start the main part of the website: the featured work -->
+      <main>
+
+        <h2 class="row">
+          <div class="col-md-12">
+            <h2 class="text-thin">Software Development Projects</h2>
+          </div>
+        </h2>
+
+        <section class="row text-center">
+          <article class="col-md-6">
+            <img src="{{ url_for('static', filename='img/Thesis_Image.jpg') }}" class="img-responsive" alt="Snowflake" width="555">
+            <h4>UCSB Master's Thesis</h4>
+            <p><a href="{{ url_for('static', filename='pdfs/Thesis_Report.pdf') }}" target="_blank">Thesis Report</a></p>
+            <p><a href="{{ url_for('static', filename='img/Snowflake_Growth.mv4') }}" target="_blank">Simulation Created by my Thesis Code</a></p>
+            <ul class="text-left">
+              <li>Developed a higher order accurate MATLAB code to efficiently simulate complicated dendritic crystal growth (the Stefan problem) on irregular domains</li>
+              <li>Used cutting edge techniques such as the level-set method paired with the Ghost-Fluid method to achieve superior interface tracking</li>
+              <li>Implemented third-order extrapolation and up to fifth-order accurate Weighted Essentially Non-Oscillatory (WENO) schemes to handle advection accurately</li>
+            </ul>
+          </article>
+
+          <article class="col-md-6">
+            <img src="{{ url_for('static', filename='img/HeyPal_img.png') }}" class="img-responsive" alt="HeyPal website screenshot" width="555">
+            <h4>HeyPal</h4>
+            <p><a href="http://ec2-52-15-196-144.us-east-2.compute.amazonaws.com/heypal/" target="_blank">Visit HeyPal Website</a></p>
+            <ul class="text-left">
+              <li>Designed a data-driven social network that suggests fun activities to do in your local area - users can add pals, send invites, and add activities</li>
+              <li>Designed, built, and implemented my vision for HeyPal using Python Flask web development, PSQL database queries, and a Linux server host to provide users with an immersive experience</li>
+              <li>Integrated Google Maps and Foursquare APIs to feature activity markers on a map with access to a venue’s website, phone, and photos (if available)</li>
+            </ul>
+          </article>
+
+        </section>
+        <p>&nbsp;</p>
+
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+        </div>
+      </div>
+
+<!-- Next section -->
+
+        <h2 class="row">
+          <div class="col-md-12">
+            <h2 class="text-thin">Mechanical Engineering Projects</h2>
+          </div>
+        </h2>
+
+        <section class="row text-center">
+
+          <article class="col-md-6">
+            <img src="{{ url_for('static', filename='img/most_marketable.jpg') }}" class="img-responsive" alt="Most Marketable Design" width="555">
+            <h4>Most Marketable Design</h4>
+            <p><a href="{{ url_for('static', filename='pdfs/Modular_Table.pdf') }}" target="_blank">Modular Table Poster</a></p>
+            <p><a href="https://www.youtube.com/watch?v=KUha4bXCQkc" target="_blank">Modular Table Video</a></p>
+            <ul class="text-left">
+              <li>Conducted market research, brainstormed ideas, and finally designed and fabricated modular table to submit in ME Design competition</li>
+              <li>Won “Most Marketable” for our modular table design - a table made up of square grids that can be reconfigured from a square to a rectangle or L-shape (like Tetris)</li>
+            </ul>
+          </article>
+
+          <article class="col-md-6">
+            <img src="{{ url_for('static', filename='img/Dodonpa.jpg') }}" class="img-responsive" alt="Dodonpa Roller Coaster" width="555">
+            <h4>Writing Excellence Award</h4>
+            <p><a href="https://en.wikipedia.org/wiki/Dodonpa" target="_blank">Dodonpa article</a></p>
+            <p><a href="https://tools.wmflabs.org/pageviews/?project=en.wikipedia.org&platform=all-access&agent=user&range=latest-30&pages=Dodonpa" target="_blank">Page View Statistics</a></p>
+            <ul class="text-left">
+              <li>Tasked with writing a technical report to be published on Wikipedia, I chose to write about the Dodonpa roller coaster located in Japan</li>
+              <li>Received a UCSB Writing Excellence Award
+              <li>Receives 3,000 views monthly
+              <li>Achieved a B-class rating on Wikipedia (the highest grade ever received for this assignment)</li>
+            </ul>
+          </article>
+        </section>
+        <p>&nbsp;</p>
+
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+        </div>
+      </div>
+
+<!-- Next section -->
+        <h2 class="row">
+          <div class="col-md-12">
+            <h2 class="text-thin">Other Achievements</h2>
+          </div>
+        </h2>
+
+        <section class="row text-center">
+          <article class="col-md-4">
+            <img src="{{ url_for('static', filename='img/Life_Saving_Award.jpg') }}" class="img-responsive" alt="Life Saving Award in Guam" width="370">
+            <h4>Received Life Saving Award</h4>
+            <p><a href="images/Life_Saving_Award_Certificate.jpg" target="_blank">Life Saving Award Certificate</a></p>
+            <p class="text-left">I have a passion for travel! The summer of 2015, I worked on the beautiful island of Guam leading snorkel tours, teaching wind surfing lessons, and exploring the island. During one excursion, I rescued a drowning victim and was recognized for my heroic achievement.</p>
+          </article>
+
+          <article class="col-md-4">
+            <img src="{{ url_for('static', filename='img/Marathon.jpg') }}" class="img-responsive" alt="Crossing the Marathon Finish Line" width="370">
+            <h4>Ran a Marathon</h4>
+            <p><a href="images/Marathon_Results.png" target="_blank">Marathon Results</a></p>
+            <p class="text-left">I love sports and athletics! In 2013, I crossed off another Bucket List item by running 26.2 miles to cross the finish line of the Santa Barbara International Marathon.</p>
+          </article>
+
+          <article class="col-md-4">
+            <img src="{{ url_for('static', filename='img/Grad_2.jpg') }}" class="img-responsive" alt="Graduation" width="370">
+            <img src="{{ url_for('static', filename='img/Grad_33.jpg') }}" class="img-responsive" alt="Graduation" width="370">
+            <h4>Graduated from UCSB Twice!</h4>
+            <p>&nbsp;</p>
+            <p class="text-left">Graduated from the greatest school in the world (twice) and met some pretty amazing people along the way! Received both a Bachelor's and Master's degree in Mechanical Engineering.</p>
+          </article>
+        </section>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+
+      </main>
+
+    </div>
+  </body>
+</html>
